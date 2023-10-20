@@ -1,0 +1,9 @@
+SELECT SomarClientesCadastradosNoDia('2023-10-01');
+
+
+
+    
+
+
+
+

@@ -14,3 +14,7 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+
+
+SELECT SomarClientesCadastradosNoDia('2023-10-01');
