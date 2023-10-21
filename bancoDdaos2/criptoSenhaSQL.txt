@@ -1,0 +1,36 @@
+CREATE CERTIFICATE MeuCertificado
+
+ENCRYPTION BY PASSWORD = 'Show@512'
+
+WITH SUBJECT = 'Meu Certificado'
+
+//////////////////////////////////
+
+CREATE SYMMETRIC KEY MinhaChave
+
+WITH ALGORITHM = AES_256
+
+ENCRYPTION BY CERTIFICATE MeuCertificado
+
+/////////////////////////////////////
+
+OPEN SYMMETRIC KEY ChaveSenha
+
+DECRYPTION BY CERTIFICATE Certificado
+
+GO
+
+SELECT    *    senhadescriptografada = CAST (DECRYPTBYKEY(SENHA) AS varchar(50))
+
+FROM Usuario
+
+CLOSE SYMMETRIC KEY ChaveSenha
+
+////////////////////////////////////
+
+
+Complexidade: Crie senhas complexas que combinem letras maiúsculas e minúsculas, números e caracteres especiais. Evite senhas óbvias, como "123456" ou "senha123," e opte por algo mais único, como "P@ssw0rd!".
+
+Comprimento: Quanto mais longa a senha, mais segura ela é. Recomenda-se ter senhas com pelo menos 12 caracteres. Use frases ou sequências de palavras em vez de uma única palavra. Por exemplo, "C@chorroSaltitanteAmarelo!" é mais forte do que "Senha1".
+
+Autenticação de Dois Fatores (2FA): Ative a autenticação de dois fatores sempre que possível. Isso adiciona uma camada extra de segurança, exigindo que você forneça um código gerado ou enviado para o seu dispositivo após inserir sua senha.
